@@ -120,6 +120,8 @@ img {
 .mobile-menu-btn {
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
     gap: 5px;
     background: none;
     border: none;
@@ -129,6 +131,8 @@ img {
     top: 20px;
     right: 20px;
     z-index: 1001;
+    width: 45px;
+    height: 45px;
 }
 
 .mobile-menu-btn span {
@@ -136,10 +140,23 @@ img {
     height: 3px;
     background-color: var(--color-dark);
     transition: var(--transition);
+    position: absolute;
+}
+
+.mobile-menu-btn span:nth-child(1) {
+    transform: translateY(-8px);
+}
+
+.mobile-menu-btn span:nth-child(2) {
+    transform: translateY(0);
+}
+
+.mobile-menu-btn span:nth-child(3) {
+    transform: translateY(8px);
 }
 
 .mobile-menu-btn.active span:nth-child(1) {
-    transform: rotate(45deg) translate(7px, 7px);
+    transform: translateY(0) rotate(45deg);
 }
 
 .mobile-menu-btn.active span:nth-child(2) {
@@ -147,7 +164,7 @@ img {
 }
 
 .mobile-menu-btn.active span:nth-child(3) {
-    transform: rotate(-45deg) translate(7px, -7px);
+    transform: translateY(0) rotate(-45deg);
 }
 
 .mobile-menu {

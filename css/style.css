@@ -483,6 +483,12 @@ img {
     font-style: italic;
 }
 
+.service-note {
+    color: var(--color-olive);
+    font-size: 0.9rem;
+    margin-top: var(--spacing-sm);
+}
+
 .group-format ul {
     margin-left: var(--spacing-md);
     margin-top: var(--spacing-sm);

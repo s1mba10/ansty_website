@@ -519,7 +519,7 @@ img {
 }
 
 .price-item.highlighted {
-    background-color: var(--color-taupe);
+    background-color: rgba(166, 137, 104, 0.1);
     border: 2px solid var(--color-gold-brown);
 }
 

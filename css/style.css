@@ -490,14 +490,34 @@ img {
     margin-top: var(--spacing-sm);
 }
 
+.service-steps {
+    margin-left: var(--spacing-md);
+    margin-top: var(--spacing-sm);
+}
+
+.service-steps li {
+    margin-bottom: var(--spacing-sm);
+    line-height: 1.7;
+}
+
+.service-benefits {
+    margin-left: var(--spacing-md);
+    margin-top: var(--spacing-sm);
+}
+
+.service-benefits li {
+    margin-bottom: var(--spacing-sm);
+    line-height: 1.7;
+}
+
 .group-format ul {
     margin-left: var(--spacing-md);
     margin-top: var(--spacing-sm);
 }
 
 .group-format li {
-    margin-bottom: var(--spacing-xs);
-    line-height: 1.6;
+    margin-bottom: var(--spacing-sm);
+    line-height: 1.7;
 }
 
 .service-pricing {

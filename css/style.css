@@ -80,14 +80,14 @@ img {
 }
 
 .btn-primary::after {
-    content: '→';
+    content: '';
     position: absolute;
     right: 28px;
-    font-size: 24px;
-    font-weight: 400;
-    color: var(--color-white);
+    width: 20px;
+    height: 12px;
+    clip-path: polygon(0 0, 100% 50%, 0 100%, 20% 50%);
+    background-color: var(--color-white);
     transition: transform 0.3s ease;
-    line-height: 1;
 }
 
 .btn-primary:hover {
@@ -119,14 +119,31 @@ img {
     background-color: var(--color-taupe);
     color: var(--color-dark);
     padding: 14px 32px;
+    padding-right: 48px;
     font-size: 16px;
     height: auto;
     letter-spacing: 0.02em;
 }
 
+.btn-secondary::after {
+    content: '';
+    position: absolute;
+    right: 20px;
+    width: 16px;
+    height: 10px;
+    clip-path: polygon(0 0, 100% 50%, 0 100%, 20% 50%);
+    background-color: var(--color-dark);
+    transition: transform 0.3s ease;
+}
+
 .btn-secondary:hover {
     background-color: var(--color-gold-brown);
     color: var(--color-white);
+}
+
+.btn-secondary:hover::after {
+    background-color: var(--color-white);
+    transform: translateX(4px);
 }
 
 /* Outline кнопка для светлого фона */
@@ -154,14 +171,14 @@ img {
 }
 
 .btn-outline-white::after {
-    content: '→';
+    content: '';
     position: absolute;
     right: 28px;
-    font-size: 24px;
-    font-weight: 400;
-    color: var(--color-white);
+    width: 20px;
+    height: 12px;
+    clip-path: polygon(0 0, 100% 50%, 0 100%, 20% 50%);
+    background-color: var(--color-white);
     transition: transform 0.3s ease;
-    line-height: 1;
 }
 
 .btn-outline-white:hover {
@@ -184,7 +201,7 @@ img {
 }
 
 .btn-outline-white:disabled::after {
-    color: rgba(255, 255, 255, 0.5);
+    background-color: rgba(255, 255, 255, 0.5);
     transform: none;
 }
 

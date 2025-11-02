@@ -49,32 +49,79 @@ img {
 
 /* ===== КНОПКИ ===== */
 .btn {
-    display: inline-block;
-    padding: 14px 32px;
-    border-radius: 50px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 40px;
+    border-radius: 9999px;
     text-decoration: none;
-    font-family: var(--font-accent);
+    font-family: 'Manrope', var(--font-accent);
     font-weight: 600;
-    font-size: 16px;
+    font-size: 22px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
     cursor: pointer;
-    transition: var(--transition);
+    transition: all 0.3s ease;
     border: 2px solid transparent;
     text-align: center;
+    position: relative;
+    white-space: nowrap;
+    height: 68px;
+    max-width: 640px;
+    margin: 0 auto;
 }
 
+/* Primary CTA - оливковая заливка */
 .btn-primary {
-    background-color: var(--color-gold-brown);
+    background-color: var(--color-olive);
     color: var(--color-white);
+    border: none;
+    padding-right: 56px;
+}
+
+.btn-primary::after {
+    content: '→';
+    position: absolute;
+    right: 28px;
+    font-size: 24px;
+    font-weight: 400;
+    color: var(--color-white);
+    transition: transform 0.3s ease;
+    line-height: 1;
 }
 
 .btn-primary:hover {
-    background-color: var(--color-olive);
-    transform: translateY(-2px);
+    background-color: #7a7b6b;
+    transform: none;
 }
 
+.btn-primary:hover::after {
+    transform: translateX(4px);
+}
+
+.btn-primary:focus {
+    outline: 2px solid var(--color-white);
+    outline-offset: 2px;
+}
+
+.btn-primary:disabled {
+    background-color: #b5b6aa;
+    cursor: default;
+    opacity: 0.6;
+}
+
+.btn-primary:disabled::after {
+    transform: none;
+}
+
+/* Secondary кнопки (для карточек услуг) */
 .btn-secondary {
     background-color: var(--color-taupe);
     color: var(--color-dark);
+    padding: 14px 32px;
+    font-size: 16px;
+    height: auto;
+    letter-spacing: 0.02em;
 }
 
 .btn-secondary:hover {
@@ -82,10 +129,15 @@ img {
     color: var(--color-white);
 }
 
+/* Outline кнопка для светлого фона */
 .btn-outline {
     background-color: transparent;
     border: 2px solid var(--color-gold-brown);
     color: var(--color-gold-brown);
+    padding: 14px 32px;
+    font-size: 16px;
+    height: auto;
+    letter-spacing: 0.02em;
 }
 
 .btn-outline:hover {
@@ -93,9 +145,54 @@ img {
     color: var(--color-white);
 }
 
+/* Outline CTA - контурная белая для оливкового фона */
+.btn-outline-white {
+    background-color: transparent;
+    border: 2px solid var(--color-white);
+    color: var(--color-white);
+    padding-right: 56px;
+}
+
+.btn-outline-white::after {
+    content: '→';
+    position: absolute;
+    right: 28px;
+    font-size: 24px;
+    font-weight: 400;
+    color: var(--color-white);
+    transition: transform 0.3s ease;
+    line-height: 1;
+}
+
+.btn-outline-white:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.btn-outline-white:hover::after {
+    transform: translateX(4px);
+}
+
+.btn-outline-white:focus {
+    outline: 2px solid var(--color-white);
+    outline-offset: 2px;
+}
+
+.btn-outline-white:disabled {
+    border-color: rgba(255, 255, 255, 0.5);
+    color: rgba(255, 255, 255, 0.5);
+    cursor: default;
+}
+
+.btn-outline-white:disabled::after {
+    color: rgba(255, 255, 255, 0.5);
+    transform: none;
+}
+
+/* Большая CTA кнопка */
 .btn-large {
-    padding: 18px 48px;
-    font-size: 18px;
+    padding: 20px 40px;
+    font-size: 22px;
+    height: 68px;
 }
 
 /* ===== ЗАГОЛОВКИ ===== */
@@ -633,6 +730,34 @@ img {
     margin-bottom: var(--spacing-md);
 }
 
+/* ===== DEMO SECTION ===== */
+.demo-section {
+    padding: var(--spacing-xl) 0;
+    background-color: var(--color-olive);
+}
+
+.demo-content {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.demo-title {
+    font-family: var(--font-main);
+    font-size: 2.2rem;
+    font-style: italic;
+    color: var(--color-white);
+    margin-bottom: var(--spacing-sm);
+    font-weight: 400;
+}
+
+.demo-description {
+    font-size: 1.1rem;
+    color: var(--color-white);
+    margin-bottom: var(--spacing-md);
+    opacity: 0.95;
+}
+
 /* ===== FOOTER ===== */
 .footer {
     background-color: var(--color-taupe);
@@ -688,19 +813,42 @@ img {
     }
 }
 
+@media (max-width: 768px) {
+    /* CTA кнопки на мобильных */
+    .btn-primary,
+    .btn-outline-white,
+    .btn-large {
+        width: 100%;
+        max-width: 640px;
+        margin: 0 auto;
+        font-size: 18px;
+        padding: 18px 36px;
+        height: 64px;
+    }
+
+    .btn-primary::after,
+    .btn-outline-white::after {
+        right: 24px;
+    }
+}
+
 @media (max-width: 480px) {
     .container {
         padding: 0 var(--spacing-sm);
     }
 
-    .btn {
-        padding: 12px 24px;
-        font-size: 14px;
+    .btn-primary,
+    .btn-outline-white,
+    .btn-large {
+        font-size: 16px;
+        padding: 16px 32px;
+        height: 60px;
     }
 
-    .btn-large {
-        padding: 14px 32px;
-        font-size: 16px;
+    .btn-secondary,
+    .btn-outline {
+        padding: 12px 24px;
+        font-size: 14px;
     }
 
     .hero-title {

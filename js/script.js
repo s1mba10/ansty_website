@@ -66,3 +66,97 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         }
     });
 });
+
+// Reviews carousel & read more
+const reviewsCarousel = document.querySelector('.reviews-carousel');
+const reviewsTrack = reviewsCarousel ? reviewsCarousel.querySelector('.reviews-track') : null;
+
+if (reviewsCarousel && reviewsTrack) {
+    const reviewSlides = Array.from(reviewsTrack.children);
+    const prevBtn = document.querySelector('.reviews-nav-button--prev');
+    const nextBtn = document.querySelector('.reviews-nav-button--next');
+    let currentIndex = 0;
+    let slideWidth = 0;
+    let slideGap = 0;
+
+    const measure = () => {
+        if (!reviewSlides.length) return;
+        slideWidth = reviewSlides[0].getBoundingClientRect().width;
+        const styles = window.getComputedStyle(reviewsTrack);
+        slideGap = parseFloat(styles.columnGap || styles.gap || '0');
+    };
+
+    const updateActiveSlide = () => {
+        reviewSlides.forEach((slide, index) => {
+            const isActive = index === currentIndex;
+            slide.classList.toggle('is-active', isActive);
+            slide.setAttribute('aria-hidden', isActive ? 'false' : 'true');
+        });
+    };
+
+    const updatePosition = () => {
+        if (!reviewSlides.length) return;
+        const offset = currentIndex * (slideWidth + slideGap);
+        reviewsTrack.style.transform = `translateX(-${offset}px)`;
+        updateActiveSlide();
+    };
+
+    const move = (direction) => {
+        if (!reviewSlides.length) return;
+        currentIndex = (currentIndex + direction + reviewSlides.length) % reviewSlides.length;
+        updatePosition();
+    };
+
+    prevBtn?.addEventListener('click', () => move(-1));
+    nextBtn?.addEventListener('click', () => move(1));
+
+    window.addEventListener('resize', () => {
+        measure();
+        updatePosition();
+    });
+
+    measure();
+    updatePosition();
+}
+
+// Review text toggles
+const reviewCards = document.querySelectorAll('.review-card');
+
+reviewCards.forEach((card) => {
+    const text = card.querySelector('.review-text');
+    const toggle = card.querySelector('.review-toggle');
+
+    if (!text || !toggle) return;
+
+    const setToggleVisibility = () => {
+        const wasExpanded = text.classList.contains('is-expanded');
+        if (wasExpanded) {
+            text.classList.remove('is-expanded');
+        }
+
+        const needsToggle = text.scrollHeight > text.clientHeight + 1;
+
+        if (wasExpanded) {
+            text.classList.add('is-expanded');
+        }
+
+        if (needsToggle) {
+            toggle.style.display = 'inline-flex';
+            toggle.textContent = wasExpanded ? 'Свернуть' : 'Читать ещё';
+            if (!wasExpanded) {
+                text.classList.remove('is-expanded');
+            }
+        } else {
+            toggle.style.display = 'none';
+            text.classList.add('is-expanded');
+        }
+    };
+
+    toggle.addEventListener('click', () => {
+        const isExpanded = text.classList.toggle('is-expanded');
+        toggle.textContent = isExpanded ? 'Свернуть' : 'Читать ещё';
+    });
+
+    setToggleVisibility();
+    window.addEventListener('resize', setToggleVisibility);
+});

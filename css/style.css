@@ -793,6 +793,146 @@ img {
     font-size: 0.9rem;
 }
 
+/* ===== СТИЛИ ДЛЯ ГРУППОВОГО СОПРОВОЖДЕНИЯ ===== */
+.service-why-group {
+    margin: var(--spacing-md) 0;
+    padding: var(--spacing-md);
+    background-color: var(--color-beige);
+    border-radius: var(--border-radius);
+    border-left: 4px solid var(--color-gold-brown);
+}
+
+.service-why-group h4 {
+    color: var(--color-dark);
+    margin-bottom: var(--spacing-sm);
+    font-size: 1.2rem;
+}
+
+.service-why-group ul {
+    margin-left: var(--spacing-md);
+    margin-top: var(--spacing-sm);
+}
+
+.service-why-group li {
+    margin-bottom: var(--spacing-xs);
+    line-height: 1.6;
+}
+
+.group-lessons {
+    margin: var(--spacing-md) 0;
+    padding: var(--spacing-md);
+    background-color: var(--color-white);
+    border-radius: var(--border-radius);
+    border-left: 4px solid var(--color-gold-brown);
+}
+
+.group-lessons h4 {
+    color: var(--color-gold-brown);
+    margin-bottom: var(--spacing-sm);
+    font-size: 1.2rem;
+}
+
+.group-lessons ul {
+    margin-left: var(--spacing-md);
+    margin-top: var(--spacing-sm);
+    list-style: none;
+    counter-reset: lesson-counter;
+}
+
+.group-lessons li {
+    margin-bottom: var(--spacing-xs);
+    line-height: 1.6;
+    counter-increment: lesson-counter;
+    position: relative;
+    padding-left: 1.8rem;
+}
+
+.group-lessons li::before {
+    content: counter(lesson-counter) ".";
+    position: absolute;
+    left: 0;
+    color: var(--color-gold-brown);
+    font-weight: 600;
+}
+
+.group-suitable {
+    margin: var(--spacing-md) 0;
+}
+
+.group-suitable h4 {
+    color: var(--color-dark);
+    margin-bottom: var(--spacing-md);
+    font-size: 1.2rem;
+}
+
+.group-personalization {
+    margin: var(--spacing-md) 0;
+    padding: var(--spacing-md);
+    background-color: rgba(166, 137, 104, 0.1);
+    border-radius: var(--border-radius);
+    border-left: 4px solid var(--color-gold-brown);
+}
+
+.group-promise {
+    margin: var(--spacing-md) 0;
+    padding: var(--spacing-md);
+    background-color: var(--color-beige);
+    border-radius: var(--border-radius);
+    text-align: center;
+}
+
+.group-promise p {
+    font-size: 1.05rem;
+    line-height: 1.7;
+}
+
+.group-not-included {
+    margin: var(--spacing-md) 0;
+    padding: var(--spacing-md);
+    background-color: rgba(200, 100, 100, 0.05);
+    border-radius: var(--border-radius);
+    border-left: 4px solid #c96464;
+}
+
+.group-not-included h4 {
+    color: #c96464;
+    margin-bottom: var(--spacing-sm);
+    font-size: 1.2rem;
+}
+
+.group-not-included ul {
+    margin-left: var(--spacing-md);
+    margin-top: var(--spacing-sm);
+    margin-bottom: var(--spacing-sm);
+}
+
+.group-not-included li {
+    margin-bottom: var(--spacing-xs);
+    line-height: 1.6;
+}
+
+.group-start-date {
+    text-align: center;
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--color-gold-brown);
+    margin-top: var(--spacing-md);
+    padding: var(--spacing-sm);
+    background-color: rgba(166, 137, 104, 0.1);
+    border-radius: var(--border-radius);
+    border: 2px solid var(--color-gold-brown);
+}
+
+/* Компактные списки */
+.service-card-accent ul {
+    margin-left: 1.2rem;
+}
+
+.service-card-accent li {
+    margin-bottom: 0.4rem;
+    line-height: 1.5;
+}
+
 /* ===== АДАПТИВНОСТЬ ===== */
 @media (max-width: 968px) {
 

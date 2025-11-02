@@ -734,7 +734,11 @@ img {
 }
 
 .faq-question:hover {
-    background-color: var(--color-beige);
+    background-color: var(--color-taupe);
+}
+
+.faq-item.active .faq-question:hover {
+    background-color: transparent;
 }
 
 .faq-icon {

@@ -229,6 +229,10 @@ img {
     margin-bottom: var(--spacing-lg);
 }
 
+.reviews .section-title {
+    margin-bottom: 0;
+}
+
 .reviews .section-subtitle {
     margin-bottom: var(--spacing-sm);
 }

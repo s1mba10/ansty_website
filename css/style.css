@@ -483,6 +483,38 @@ img {
     margin: 0;
 }
 
+/* ===== EDUCATION SECTION ===== */
+.education {
+    padding: var(--spacing-xl) 0;
+    background-color: var(--color-white);
+    text-align: center;
+}
+
+.education-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+    margin: var(--spacing-lg) 0;
+}
+
+.education-item {
+    background-color: var(--color-beige);
+    padding: var(--spacing-md) var(--spacing-lg);
+    border-radius: var(--border-radius);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+}
+
+.education-item p {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: var(--color-dark);
+    margin: 0;
+}
+
+.education .btn {
+    margin-top: var(--spacing-md);
+}
+
 /* ===== SERVICES SECTION ===== */
 .services {
     padding: var(--spacing-xl) 0;

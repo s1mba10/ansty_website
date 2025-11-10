@@ -411,6 +411,45 @@ img {
     color: var(--color-olive);
 }
 
+/* ===== APPROACH SECTION ===== */
+.approach {
+    padding: var(--spacing-xl) 0;
+    background-color: var(--color-white);
+}
+
+.approach-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
+    margin-top: var(--spacing-lg);
+}
+
+.approach-item {
+    padding: var(--spacing-lg);
+    background-color: var(--color-milk);
+    border-radius: var(--border-radius);
+    border-left: 4px solid var(--color-gold-brown);
+}
+
+.approach-title {
+    font-family: var(--font-main);
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--color-dark);
+    margin-bottom: var(--spacing-sm);
+}
+
+.approach-description {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: var(--color-dark);
+    margin-bottom: var(--spacing-sm);
+}
+
+.approach-description:last-child {
+    margin-bottom: 0;
+}
+
 /* ===== SERVICES SECTION ===== */
 .services {
     padding: var(--spacing-xl) 0;

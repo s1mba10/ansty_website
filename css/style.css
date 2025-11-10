@@ -334,21 +334,8 @@ img {
     gap: 32px;
 }
 
-.hero-title-block {
-    order: 1;
-}
-
-.hero-title {
-    font-family: var(--font-main);
-    font-size: 3rem;
-    font-style: italic;
-    color: var(--color-dark);
-    margin-bottom: 0;
-    font-weight: 400;
-}
-
 .hero-image {
-    order: 2;
+    order: 1;
     width: 100%;
     height: auto;
     aspect-ratio: 16 / 9;
@@ -363,15 +350,36 @@ img {
     object-fit: cover;
 }
 
-.hero-text {
-    order: 3;
+.hero-intro {
+    order: 2;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    align-items: center;
+}
+
+.hero-name {
+    font-family: var(--font-main);
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--color-dark);
+    margin: 0;
 }
 
 .hero-subtitle {
     font-size: 1.1rem;
     color: var(--color-dark);
-    margin-bottom: var(--spacing-md);
+    margin: 0;
     line-height: 1.8;
+}
+
+.hero-intro .btn {
+    margin-top: 8px;
+}
+
+.hero-text {
+    order: 3;
 }
 
 .hero-points {

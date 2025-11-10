@@ -450,6 +450,39 @@ img {
     margin-bottom: 0;
 }
 
+/* ===== ISSUES SECTION ===== */
+.issues {
+    padding: var(--spacing-xl) 0;
+    background-color: var(--color-milk);
+}
+
+.issues-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-lg);
+}
+
+.issue-card {
+    background-color: var(--color-white);
+    padding: var(--spacing-md);
+    border-radius: var(--border-radius);
+    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.issue-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+.issue-card p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--color-dark);
+    margin: 0;
+}
+
 /* ===== SERVICES SECTION ===== */
 .services {
     padding: var(--spacing-xl) 0;

@@ -324,58 +324,72 @@ img {
 
 /* ===== HERO SECTION ===== */
 .hero {
-    padding: var(--spacing-xl) 0;
-    background: linear-gradient(135deg, var(--color-milk) 0%, var(--color-beige) 100%);
-}
-
-.hero-content {
-    display: flex;
-    flex-direction: column;
-    gap: 32px;
+    padding: 0;
+    background: var(--color-milk);
 }
 
 .hero-image {
-    order: 1;
+    position: relative;
     width: 100%;
-    height: auto;
-    aspect-ratio: 16 / 9;
-    border-radius: 8px;
+    height: 100vh;
+    min-height: 600px;
     overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
 
 .hero-image img {
     width: 100%;
-    height: 170%;
+    height: 100%;
     object-fit: cover;
+    object-position: center;
+}
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0.1) 0%,
+        rgba(0, 0, 0, 0.3) 50%,
+        rgba(0, 0, 0, 0.6) 100%
+    );
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    padding-bottom: 80px;
 }
 
 .hero-intro {
-    order: 2;
     text-align: center;
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: 24px;
     align-items: center;
+    padding: var(--spacing-md);
+    max-width: 800px;
 }
 
 .hero-name {
     font-family: var(--font-main);
-    font-size: 1.5rem;
+    font-size: 3rem;
     font-weight: 600;
-    color: var(--color-dark);
+    color: var(--color-white);
     margin: 0;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .hero-subtitle {
-    font-size: 1.1rem;
-    color: var(--color-dark);
+    font-size: 1.3rem;
+    color: var(--color-white);
     margin: 0;
     line-height: 1.8;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
 }
 
 .hero-intro .btn {
-    margin-top: 8px;
+    margin-top: 16px;
+    font-size: 18px;
+    padding: 16px 32px;
+    height: 56px;
 }
 
 .hero-text {
@@ -1268,8 +1282,27 @@ img {
         font-size: 2rem;
     }
 
-    .hero-title {
-        font-size: 2.2rem;
+    .hero-image {
+        height: 100vh;
+        min-height: 500px;
+    }
+
+    .hero-overlay {
+        padding-bottom: 60px;
+    }
+
+    .hero-name {
+        font-size: 2rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1.1rem;
+    }
+
+    .hero-intro .btn {
+        font-size: 16px;
+        padding: 14px 28px;
+        height: 52px;
     }
 
     .service-header {
@@ -1338,8 +1371,26 @@ img {
         font-size: 14px;
     }
 
-    .hero-title {
+    .hero-image {
+        min-height: 450px;
+    }
+
+    .hero-overlay {
+        padding-bottom: 40px;
+    }
+
+    .hero-name {
         font-size: 1.8rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1rem;
+    }
+
+    .hero-intro .btn {
+        font-size: 15px;
+        padding: 14px 26px;
+        height: 50px;
     }
 
     .service-issues {

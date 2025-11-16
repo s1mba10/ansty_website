@@ -1564,14 +1564,14 @@ body.modal-open {
 }
 
 .advantage-card {
-    background: var(--color-beige);
+    background: linear-gradient(135deg, rgba(166, 137, 104, 0.1) 0%, rgba(201, 184, 163, 0.15) 100%);
     padding: var(--spacing-md);
     border-radius: var(--border-radius);
     transition: var(--transition);
 }
 
 .advantage-card:hover {
-    background: var(--color-taupe);
+    background: linear-gradient(135deg, rgba(166, 137, 104, 0.15) 0%, rgba(201, 184, 163, 0.2) 100%);
     transform: translateY(-2px);
 }
 
@@ -1600,7 +1600,7 @@ body.modal-open {
     display: flex;
     gap: var(--spacing-sm);
     align-items: flex-start;
-    background: var(--color-beige);
+    background: linear-gradient(135deg, rgba(166, 137, 104, 0.1) 0%, rgba(201, 184, 163, 0.15) 100%);
     padding: var(--spacing-md);
     border-radius: var(--border-radius);
 }

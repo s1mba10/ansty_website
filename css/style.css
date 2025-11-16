@@ -457,9 +457,10 @@ img {
     position: absolute;
     left: 0;
     top: 0;
-    font-size: 2rem;
+    font-size: 3rem;
     color: var(--color-gold-brown);
-    line-height: 1.5;
+    line-height: 1;
+    font-weight: bold;
 }
 
 .approach-title {

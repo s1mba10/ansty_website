@@ -8,7 +8,7 @@
     --color-dark: #4A4A3F;
     --color-white: #FFFFFF;
 
-    --font-main: 'Playfair Display', 'Georgia', 'Times New Roman', serif;
+    --font-main: 'Literata', 'Georgia', 'Times New Roman', serif;
     --font-accent: 'Montserrat', 'Arial', sans-serif;
 
     --spacing-xs: 0.5rem;
@@ -217,7 +217,7 @@ img {
     font-size: 2.5rem;
     color: var(--color-dark);
     margin-bottom: var(--spacing-md);
-    font-style: italic;
+    font-style: normal;
     text-align: center;
     font-weight: 400;
 }
@@ -536,36 +536,44 @@ img {
     margin: 0;
 }
 
-/* ===== EDUCATION SECTION ===== */
-.education {
+/* ===== WORK FORMATS SECTION ===== */
+.work-formats {
     padding: var(--spacing-xl) 0;
     background-color: var(--color-white);
     text-align: center;
 }
 
-.education-list {
+.work-formats-buttons {
     display: flex;
     flex-direction: column;
     gap: var(--spacing-md);
-    margin: var(--spacing-lg) 0;
+    max-width: 500px;
+    margin: var(--spacing-lg) auto 0;
 }
 
-.education-item {
-    background-color: var(--color-beige);
+.format-button {
+    background-color: var(--color-taupe);
+    color: var(--color-dark);
+    border: none;
+    border-radius: 12px;
     padding: var(--spacing-md) var(--spacing-lg);
-    border-radius: var(--border-radius);
+    font-family: var(--font-accent);
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
 }
 
-.education-item p {
-    font-size: 1.05rem;
-    line-height: 1.7;
-    color: var(--color-dark);
-    margin: 0;
+.format-button:hover {
+    background-color: var(--color-gold-brown);
+    color: var(--color-white);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
-.education .btn {
-    margin-top: var(--spacing-md);
+.format-button:active {
+    transform: translateY(0);
 }
 
 /* ===== SERVICES SECTION ===== */

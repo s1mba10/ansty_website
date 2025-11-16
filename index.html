@@ -126,11 +126,94 @@
             <h2 class="section-title">Форматы работы со мной</h2>
 
             <div class="work-formats-buttons">
-                <button class="format-button">Персональная консультация</button>
+                <button class="format-button" id="personalConsultationBtn">Персональная консультация</button>
                 <button class="format-button">Групповое ведение</button>
             </div>
         </div>
     </section>
+
+    <!-- Personal Consultation Modal -->
+    <div class="modal" id="personalConsultationModal">
+        <div class="modal-overlay"></div>
+        <div class="modal-content">
+            <button class="modal-close" aria-label="Закрыть">×</button>
+
+            <h2 class="modal-title">Персональная консультация</h2>
+
+            <div class="modal-section">
+                <h3 class="modal-subtitle">Что вы получите от работы со мной:</h3>
+                <ul class="modal-benefits">
+                    <li>Разбор вашего рациона и пищевых привычек</li>
+                    <li>Анализ возможных дефицитов исходя из дневника питания и ваших симптомов</li>
+                    <li>Понимание почему именно у вас появились определенные жалобы</li>
+                    <li>Научно обоснованные подсказки как составлять рацион именно вам, без подсчета калорий, тревог и стресса</li>
+                    <li>Индивидуальные рекомендации по питанию, выстраиванию здоровых отношений с едой без крайностей и запретов</li>
+                    <li>Четкий план шагов и инструменты, которые помогут решить ваш запрос</li>
+                    <li>Ответы на все ваши вопросы и мою поддержку: вы будете понимать, что делать дальше и почему ♥</li>
+                </ul>
+            </div>
+
+            <div class="modal-section">
+                <h3 class="modal-subtitle">Как проходит:</h3>
+                <div class="modal-steps">
+                    <div class="modal-step">
+                        <div class="modal-step-number">1</div>
+                        <div class="modal-step-content">
+                            <h4>Старт</h4>
+                            <p>В первый день я отправляю вам дневник питания на 6 дней и анкету для заполнения.</p>
+                        </div>
+                    </div>
+                    <div class="modal-step">
+                        <div class="modal-step-number">2</div>
+                        <div class="modal-step-content">
+                            <h4>Знакомство</h4>
+                            <p>По окончанию заполнения файлов мы созваниваемся на 20–30 минут, знакомимся чуть ближе и я уточняю детали по вашим ответам.</p>
+                        </div>
+                    </div>
+                    <div class="modal-step">
+                        <div class="modal-step-number">3</div>
+                        <div class="modal-step-content">
+                            <h4>Анализы (при необходимости)</h4>
+                            <p>После звонка я формирую список анализов, которые помогут глубже понять ваше состояние.</p>
+                        </div>
+                    </div>
+                    <div class="modal-step">
+                        <div class="modal-step-number">4</div>
+                        <div class="modal-step-content">
+                            <h4>Индивидуальный разбор</h4>
+                            <p>После получения всей нужной информации я создаю для вас персональный PDF-план (питание, образ жизни, нутрицевтики). Готовность - до 8 дней.</p>
+                        </div>
+                    </div>
+                    <div class="modal-step">
+                        <div class="modal-step-number">5</div>
+                        <div class="modal-step-content">
+                            <h4>Сама консультация</h4>
+                            <p>Мы созваниваемся на 1,5–2 часа: подробно объясняю причины ваших симптомов и даю понятные шаги, что делать дальше.</p>
+                        </div>
+                    </div>
+                    <div class="modal-step">
+                        <div class="modal-step-number">6</div>
+                        <div class="modal-step-content">
+                            <h4>Поддержка и сопровождение</h4>
+                            <p>В течение недели после консультации я остаюсь с вами на связи и отвечаю на все вопросы.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal-price">
+                <span class="modal-price-label">Стоимость 4 недель</span>
+                <span class="modal-price-value">10 900 ₽</span>
+            </div>
+
+            <a href="https://t.me/Anastaasz" class="btn btn-secondary modal-btn" target="_blank">Записаться</a>
+
+            <div class="modal-section modal-reviews-section">
+                <h3 class="modal-subtitle">Отзывы клиентов</h3>
+                <p class="modal-reviews-placeholder">(скрины будут позже)</p>
+            </div>
+        </div>
+    </div>
 
     <!-- Services Section -->
     <section id="services" class="services">

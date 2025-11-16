@@ -160,3 +160,41 @@ reviewCards.forEach((card) => {
     setToggleVisibility();
     window.addEventListener('resize', setToggleVisibility);
 });
+
+// Personal Consultation Modal
+const personalConsultationBtn = document.getElementById('personalConsultationBtn');
+const personalConsultationModal = document.getElementById('personalConsultationModal');
+const modalClose = personalConsultationModal ? personalConsultationModal.querySelector('.modal-close') : null;
+const modalOverlay = personalConsultationModal ? personalConsultationModal.querySelector('.modal-overlay') : null;
+
+// Открытие модального окна
+if (personalConsultationBtn && personalConsultationModal) {
+    personalConsultationBtn.addEventListener('click', () => {
+        personalConsultationModal.classList.add('active');
+        document.body.classList.add('modal-open');
+    });
+}
+
+// Закрытие модального окна по крестику
+if (modalClose && personalConsultationModal) {
+    modalClose.addEventListener('click', () => {
+        personalConsultationModal.classList.remove('active');
+        document.body.classList.remove('modal-open');
+    });
+}
+
+// Закрытие модального окна по клику на overlay
+if (modalOverlay && personalConsultationModal) {
+    modalOverlay.addEventListener('click', () => {
+        personalConsultationModal.classList.remove('active');
+        document.body.classList.remove('modal-open');
+    });
+}
+
+// Закрытие модального окна по клавише Escape
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && personalConsultationModal && personalConsultationModal.classList.contains('active')) {
+        personalConsultationModal.classList.remove('active');
+        document.body.classList.remove('modal-open');
+    }
+});

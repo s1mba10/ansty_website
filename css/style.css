@@ -489,6 +489,13 @@ img {
     background-color: var(--color-milk);
 }
 
+.issues .section-title {
+    font-family: 'Literata', serif;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
 .issues-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));

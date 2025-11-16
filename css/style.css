@@ -441,15 +441,25 @@ img {
 .approach-list {
     display: flex;
     flex-direction: column;
-    gap: var(--spacing-lg);
+    gap: var(--spacing-md);
     margin-top: var(--spacing-lg);
+    list-style: none;
+    padding: 0;
 }
 
 .approach-item {
-    padding: var(--spacing-lg);
-    background-color: var(--color-milk);
-    border-radius: var(--border-radius);
-    border-left: 4px solid var(--color-gold-brown);
+    padding-left: calc(var(--spacing-md) + 12px);
+    position: relative;
+}
+
+.approach-item::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-size: 2rem;
+    color: var(--color-gold-brown);
+    line-height: 1.5;
 }
 
 .approach-title {

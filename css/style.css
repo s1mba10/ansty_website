@@ -538,7 +538,7 @@ img {
 
 /* ===== WORK FORMATS SECTION ===== */
 .work-formats {
-    padding: var(--spacing-xl) 0;
+    padding: var(--spacing-lg) 0 var(--spacing-xl) 0;
     background-color: var(--color-white);
     text-align: center;
 }

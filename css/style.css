@@ -1153,6 +1153,14 @@ img {
     margin-bottom: var(--spacing-md);
 }
 
+.contact .btn-primary::after {
+    display: none;
+}
+
+.contact .btn-primary {
+    padding-right: 32px;
+}
+
 /* ===== DEMO SECTION ===== */
 .demo-section {
     padding: var(--spacing-xl) 0;

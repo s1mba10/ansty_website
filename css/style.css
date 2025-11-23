@@ -1707,6 +1707,212 @@ body.modal-open {
     background: var(--color-taupe);
 }
 
+/* ===== CONSULTATION PAGE ===== */
+.back-button {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 20px;
+    background: var(--color-white);
+    border-radius: 30px;
+    text-decoration: none;
+    color: var(--color-dark);
+    font-weight: 600;
+    font-size: 0.95rem;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    transition: var(--transition);
+}
+
+.back-button:hover {
+    background: var(--color-gold-brown);
+    color: var(--color-white);
+    transform: translateX(-4px);
+}
+
+.back-icon {
+    font-size: 1.2rem;
+    line-height: 1;
+}
+
+.page-hero {
+    padding: var(--spacing-xl) 0 var(--spacing-lg);
+    background: linear-gradient(135deg, var(--color-beige) 0%, var(--color-milk) 100%);
+    text-align: center;
+    margin-top: 60px;
+}
+
+.page-title {
+    font-family: var(--font-main);
+    font-size: 2.8rem;
+    font-weight: 600;
+    color: var(--color-dark);
+    margin-bottom: var(--spacing-sm);
+    line-height: 1.2;
+}
+
+.page-subtitle {
+    font-size: 1.2rem;
+    color: var(--color-olive);
+    font-style: italic;
+}
+
+.consultation-page {
+    padding: var(--spacing-xl) 0;
+    background: var(--color-white);
+}
+
+.consultation-section {
+    margin-bottom: var(--spacing-xl);
+}
+
+.consultation-section:last-child {
+    margin-bottom: 0;
+}
+
+.consultation-section-title {
+    font-family: var(--font-main);
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: var(--color-gold-brown);
+    margin-bottom: var(--spacing-md);
+}
+
+.consultation-benefits {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+}
+
+.consultation-benefits li {
+    padding-left: 2rem;
+    position: relative;
+    line-height: 1.7;
+    font-size: 1.05rem;
+}
+
+.consultation-benefits li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: var(--color-gold-brown);
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.consultation-steps {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
+}
+
+.consultation-step {
+    display: flex;
+    gap: var(--spacing-md);
+    align-items: flex-start;
+    background: linear-gradient(135deg, rgba(166, 137, 104, 0.05) 0%, rgba(201, 184, 163, 0.1) 100%);
+    padding: var(--spacing-md);
+    border-radius: var(--border-radius);
+    transition: var(--transition);
+}
+
+.consultation-step:hover {
+    background: linear-gradient(135deg, rgba(166, 137, 104, 0.1) 0%, rgba(201, 184, 163, 0.15) 100%);
+    transform: translateX(4px);
+}
+
+.consultation-step-number {
+    flex-shrink: 0;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: var(--color-gold-brown);
+    color: var(--color-white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 1.2rem;
+}
+
+.consultation-step-content h3 {
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: var(--color-dark);
+    margin-bottom: 8px;
+}
+
+.consultation-step-content p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--color-olive);
+    margin: 0;
+}
+
+.consultation-price-section {
+    text-align: center;
+    padding: var(--spacing-lg);
+    background: linear-gradient(135deg, var(--color-beige) 0%, var(--color-taupe) 100%);
+    border-radius: 20px;
+}
+
+.consultation-price {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xs);
+    margin-bottom: var(--spacing-md);
+}
+
+.consultation-price-label {
+    font-weight: 600;
+    color: var(--color-dark);
+    font-size: 1.1rem;
+}
+
+.consultation-price-value {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--color-gold-brown);
+}
+
+.consultation-cta {
+    display: inline-flex;
+    padding: 18px 48px;
+    font-size: 1.1rem;
+    max-width: 100%;
+    box-sizing: border-box;
+    background-color: var(--color-white);
+    border-color: var(--color-white);
+    color: var(--color-gold-brown);
+}
+
+.consultation-cta:hover {
+    background-color: var(--color-gold-brown);
+    border-color: var(--color-gold-brown);
+    color: var(--color-white);
+}
+
+.consultation-reviews {
+    padding-top: var(--spacing-lg);
+    border-top: 2px solid var(--color-beige);
+}
+
+.consultation-reviews-placeholder {
+    text-align: center;
+    color: var(--color-olive);
+    font-style: italic;
+    padding: var(--spacing-lg);
+    background: var(--color-beige);
+    border-radius: var(--border-radius);
+}
+
 /* ===== АДАПТИВНОСТЬ ===== */
 @media (max-width: 968px) {
     .education-grid {
@@ -1931,6 +2137,65 @@ body.modal-open {
     .topic-tag {
         font-size: 0.85rem;
         padding: 8px 14px;
+    }
+
+    /* Consultation page mobile */
+    .back-button {
+        padding: 10px 16px;
+        font-size: 0.85rem;
+    }
+
+    .back-text {
+        display: none;
+    }
+
+    .page-hero {
+        margin-top: 50px;
+        padding: var(--spacing-lg) 0 var(--spacing-md);
+    }
+
+    .page-title {
+        font-size: 2rem;
+    }
+
+    .page-subtitle {
+        font-size: 1rem;
+    }
+
+    .consultation-section-title {
+        font-size: 1.3rem;
+    }
+
+    .consultation-benefits li {
+        font-size: 0.95rem;
+    }
+
+    .consultation-step {
+        gap: var(--spacing-sm);
+    }
+
+    .consultation-step-number {
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+    }
+
+    .consultation-step-content h3 {
+        font-size: 1rem;
+    }
+
+    .consultation-step-content p {
+        font-size: 0.9rem;
+    }
+
+    .consultation-price-value {
+        font-size: 2rem;
+    }
+
+    .consultation-cta {
+        width: 100%;
+        padding: 16px 24px;
+        font-size: 0.95rem;
     }
 }
 

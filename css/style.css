@@ -338,7 +338,7 @@ img {
 .hero-image {
     position: relative;
     width: min(100%, var(--hero-max-width));
-    height: 100vh;
+    height: clamp(600px, 100vh, 900px);
     min-height: 600px;
     overflow: hidden;
     margin: 0 auto;
@@ -399,7 +399,7 @@ img {
 
 .hero-name {
     font-family: var(--font-main);
-    font-size: 3rem;
+    font-size: clamp(1.9rem, 1.2rem + 2.4vw, 3rem);
     font-weight: 600;
     color: var(--color-white);
     margin: 0;
@@ -407,7 +407,7 @@ img {
 }
 
 .hero-subtitle {
-    font-size: 1.3rem;
+    font-size: clamp(1rem, 0.8rem + 1vw, 1.3rem);
     color: var(--color-white);
     margin: 0;
     line-height: 1.8;
@@ -2154,21 +2154,6 @@ body.lightbox-open {
     }
 }
 
-@media (min-width: 1200px) {
-    .hero-image {
-        height: min(100vh, 900px);
-    }
-
-    .hero-overlay {
-        /* Фиксируем зону текста ниже уровня глаз/носа */
-        grid-template-rows: 62% 38%;
-    }
-
-    .hero-intro {
-        padding-bottom: 72px;
-    }
-}
-
 @media (max-width: 768px) {
     :root {
         --spacing-lg: 2rem;
@@ -2187,19 +2172,6 @@ body.lightbox-open {
     .hero-overlay {
         /* На планшетах уменьшаем safe zone */
         grid-template-rows: 55% 45%;
-    }
-
-    .hero-intro {
-        padding-bottom: 60px;
-        gap: 16px;
-    }
-
-    .hero-name {
-        font-size: 2rem;
-    }
-
-    .hero-subtitle {
-        font-size: 1.1rem;
     }
 
     .hero-intro .btn {
@@ -2337,14 +2309,6 @@ body.lightbox-open {
     padding-bottom: 40px;
     gap: 12px;
 }
-
-.hero-name {
-        font-size: 1.8rem;
-    }
-
-    .hero-subtitle {
-        font-size: 1rem;
-    }
 
     .hero-intro .btn {
         font-size: 15px;

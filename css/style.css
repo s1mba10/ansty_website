@@ -1770,7 +1770,19 @@ body.modal-open {
     margin: 0 auto;
     display: flex;
     flex-direction: column;
-    gap: var(--spacing-lg);
+    gap: var(--spacing-md);
+}
+
+.group-support-page .consultation-section {
+    margin-bottom: var(--spacing-md);
+}
+
+.group-support-page .consultation-section:first-of-type {
+    margin-bottom: var(--spacing-sm);
+}
+
+.group-support-page .modal-intro {
+    margin-bottom: var(--spacing-sm);
 }
 
 .consultation-section {

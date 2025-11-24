@@ -2128,6 +2128,23 @@ body.lightbox-open {
     }
 }
 
+/* Фиксируем размер и положение текста в узком десктоп-диапазоне,
+   чтобы он не рос и не смещался вверх при переходе к арочной форме */
+@media (min-width: 886px) and (max-width: 995px) {
+    .hero-name {
+        font-size: 2.8rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1.15rem;
+    }
+
+    .hero-intro {
+        gap: 16px;
+        padding-bottom: 72px;
+    }
+}
+
 @media (min-width: 960px) {
     .hero {
         --hero-max-width: 736px;

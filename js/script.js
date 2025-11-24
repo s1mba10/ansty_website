@@ -2,48 +2,54 @@
 const mobileMenuBtn = document.getElementById('mobileMenuBtn');
 const mobileMenu = document.getElementById('mobileMenu');
 
-mobileMenuBtn.addEventListener('click', () => {
-    mobileMenu.classList.toggle('active');
-    mobileMenuBtn.classList.toggle('active');
-});
-
-// Закрытие мобильного меню при клике на ссылку
-const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
-mobileNavLinks.forEach(link => {
-    link.addEventListener('click', () => {
-        mobileMenu.classList.remove('active');
-        mobileMenuBtn.classList.remove('active');
+if (mobileMenuBtn && mobileMenu) {
+    mobileMenuBtn.addEventListener('click', () => {
+        mobileMenu.classList.toggle('active');
+        mobileMenuBtn.classList.toggle('active');
     });
-});
 
-// Закрытие мобильного меню при клике вне его
-document.addEventListener('click', (e) => {
-    if (!mobileMenu.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
-        mobileMenu.classList.remove('active');
-        mobileMenuBtn.classList.remove('active');
-    }
-});
+    // Закрытие мобильного меню при клике на ссылку
+    const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+    mobileNavLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            mobileMenu.classList.remove('active');
+            mobileMenuBtn.classList.remove('active');
+        });
+    });
+
+    // Закрытие мобильного меню при клике вне его
+    document.addEventListener('click', (e) => {
+        if (!mobileMenu.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
+            mobileMenu.classList.remove('active');
+            mobileMenuBtn.classList.remove('active');
+        }
+    });
+}
 
 // FAQ Аккордеон
 const faqItems = document.querySelectorAll('.faq-item');
 
-faqItems.forEach(item => {
-    const question = item.querySelector('.faq-question');
-    
-    question.addEventListener('click', () => {
-        const isActive = item.classList.contains('active');
-        
-        // Закрыть все открытые FAQ
-        faqItems.forEach(faq => {
-            faq.classList.remove('active');
-        });
-        
-        // Открыть текущий, если он был закрыт
-        if (!isActive) {
-            item.classList.add('active');
+if (faqItems.length > 0) {
+    faqItems.forEach(item => {
+        const question = item.querySelector('.faq-question');
+
+        if (question) {
+            question.addEventListener('click', () => {
+                const isActive = item.classList.contains('active');
+
+                // Закрыть все открытые FAQ
+                faqItems.forEach(faq => {
+                    faq.classList.remove('active');
+                });
+
+                // Открыть текущий, если он был закрыт
+                if (!isActive) {
+                    item.classList.add('active');
+                }
+            });
         }
     });
-});
+}
 
 // Плавная прокрутка к секциям
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -67,99 +73,144 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Reviews carousel & read more
-const reviewsCarousel = document.querySelector('.reviews-carousel');
-const reviewsTrack = reviewsCarousel ? reviewsCarousel.querySelector('.reviews-track') : null;
+// Reviews Slider
+function initReviewsSlider() {
+    console.log('Initializing reviews slider...');
+    const reviewsSection = document.querySelector('.reviews-section');
 
-if (reviewsCarousel && reviewsTrack) {
-    const reviewSlides = Array.from(reviewsTrack.children);
-    const prevBtn = document.querySelector('.reviews-nav-button--prev');
-    const nextBtn = document.querySelector('.reviews-nav-button--next');
-    let currentIndex = 0;
-    let slideWidth = 0;
-    let slideGap = 0;
+    if (!reviewsSection) {
+        console.log('Reviews section not found');
+        return;
+    }
 
-    const measure = () => {
-        if (!reviewSlides.length) return;
-        slideWidth = reviewSlides[0].getBoundingClientRect().width;
-        const styles = window.getComputedStyle(reviewsTrack);
-        slideGap = parseFloat(styles.columnGap || styles.gap || '0');
-    };
+    console.log('Reviews section found:', reviewsSection);
 
-    const updateActiveSlide = () => {
-        reviewSlides.forEach((slide, index) => {
-            const isActive = index === currentIndex;
-            slide.classList.toggle('is-active', isActive);
-            slide.setAttribute('aria-hidden', isActive ? 'false' : 'true');
-        });
-    };
+    const reviewsTrack = reviewsSection.querySelector('.reviews-track');
+    const reviewCards = reviewsSection.querySelectorAll('.review-card');
+    const prevBtn = reviewsSection.querySelector('.slider-btn-prev');
+    const nextBtn = reviewsSection.querySelector('.slider-btn-next');
+    const dotsContainer = reviewsSection.querySelector('.slider-dots');
 
-    const updatePosition = () => {
-        if (!reviewSlides.length) return;
-        const offset = currentIndex * (slideWidth + slideGap);
-        reviewsTrack.style.transform = `translateX(-${offset}px)`;
-        updateActiveSlide();
-    };
-
-    const move = (direction) => {
-        if (!reviewSlides.length) return;
-        currentIndex = (currentIndex + direction + reviewSlides.length) % reviewSlides.length;
-        updatePosition();
-    };
-
-    prevBtn?.addEventListener('click', () => move(-1));
-    nextBtn?.addEventListener('click', () => move(1));
-
-    window.addEventListener('resize', () => {
-        measure();
-        updatePosition();
+    console.log('Elements found:', {
+        reviewsTrack,
+        reviewCardsCount: reviewCards.length,
+        prevBtn,
+        nextBtn,
+        dotsContainer
     });
 
-    measure();
-    updatePosition();
+    if (!reviewsTrack || !reviewCards.length || !prevBtn || !nextBtn || !dotsContainer) {
+        console.error('Reviews slider elements not found');
+        return;
+    }
+
+    let currentIndex = 0;
+    let cardsPerView = window.innerWidth > 768 ? 2 : 1;
+    let totalDots = Math.ceil(reviewCards.length / cardsPerView);
+
+    // Создаем точки для навигации
+    function createDots() {
+        dotsContainer.innerHTML = '';
+        totalDots = Math.ceil(reviewCards.length / cardsPerView);
+
+        for (let i = 0; i < totalDots; i++) {
+            const dot = document.createElement('button');
+            dot.classList.add('slider-dot');
+            dot.setAttribute('aria-label', `Перейти к отзыву ${i + 1}`);
+            if (i === 0) dot.classList.add('active');
+            dot.addEventListener('click', () => goToSlide(i));
+            dotsContainer.appendChild(dot);
+        }
+    }
+
+    createDots();
+
+    function updateSlider() {
+        const cardWidth = reviewCards[0].offsetWidth;
+        const gap = parseInt(getComputedStyle(reviewsTrack).gap) || 0;
+        const offset = currentIndex * (cardWidth + gap) * cardsPerView;
+
+        reviewsTrack.style.transform = `translateX(-${offset}px)`;
+
+        // Обновляем точки
+        const dots = dotsContainer.querySelectorAll('.slider-dot');
+        dots.forEach((dot, index) => {
+            dot.classList.toggle('active', index === currentIndex);
+        });
+
+        // Обновляем состояние кнопок
+        prevBtn.disabled = currentIndex === 0;
+        nextBtn.disabled = currentIndex >= totalDots - 1;
+    }
+
+    function goToSlide(index) {
+        currentIndex = Math.max(0, Math.min(index, totalDots - 1));
+        updateSlider();
+    }
+
+    function nextSlide() {
+        console.log('Next slide clicked, current:', currentIndex, 'total:', totalDots);
+        if (currentIndex < totalDots - 1) {
+            currentIndex++;
+            updateSlider();
+        }
+    }
+
+    function prevSlide() {
+        console.log('Prev slide clicked, current:', currentIndex);
+        if (currentIndex > 0) {
+            currentIndex--;
+            updateSlider();
+        }
+    }
+
+    console.log('Adding click listeners to buttons');
+    prevBtn.addEventListener('click', prevSlide);
+    nextBtn.addEventListener('click', nextSlide);
+    console.log('Click listeners added');
+
+    // Обработка изменения размера окна
+    let resizeTimeout;
+    window.addEventListener('resize', () => {
+        clearTimeout(resizeTimeout);
+        resizeTimeout = setTimeout(() => {
+            const newCardsPerView = window.innerWidth > 768 ? 2 : 1;
+            if (newCardsPerView !== cardsPerView) {
+                cardsPerView = newCardsPerView;
+                currentIndex = 0;
+                createDots();
+            }
+            updateSlider();
+        }, 250);
+    });
+
+    // Expand/Collapse отзывов
+    reviewCards.forEach((card, index) => {
+        const toggleBtn = card.querySelector('.review-toggle');
+        console.log(`Card ${index} toggle button:`, toggleBtn);
+        if (toggleBtn) {
+            toggleBtn.addEventListener('click', (e) => {
+                console.log(`Toggle clicked for card ${index}`);
+                e.preventDefault();
+                card.classList.toggle('expanded');
+                toggleBtn.textContent = card.classList.contains('expanded')
+                    ? 'свернуть'
+                    : 'читать далее';
+            });
+        }
+    });
+
+    console.log('Calling initial updateSlider');
+    updateSlider();
+    console.log('Reviews slider initialized successfully');
 }
 
-// Review text toggles
-const reviewCards = document.querySelectorAll('.review-card');
-
-reviewCards.forEach((card) => {
-    const text = card.querySelector('.review-text');
-    const toggle = card.querySelector('.review-toggle');
-
-    if (!text || !toggle) return;
-
-    const setToggleVisibility = () => {
-        const wasExpanded = text.classList.contains('is-expanded');
-        if (wasExpanded) {
-            text.classList.remove('is-expanded');
-        }
-
-        const needsToggle = text.scrollHeight > text.clientHeight + 1;
-
-        if (wasExpanded) {
-            text.classList.add('is-expanded');
-        }
-
-        if (needsToggle) {
-            toggle.style.display = 'inline-flex';
-            toggle.textContent = wasExpanded ? 'Свернуть' : 'Читать ещё';
-            if (!wasExpanded) {
-                text.classList.remove('is-expanded');
-            }
-        } else {
-            toggle.style.display = 'none';
-            text.classList.add('is-expanded');
-        }
-    };
-
-    toggle.addEventListener('click', () => {
-        const isExpanded = text.classList.toggle('is-expanded');
-        toggle.textContent = isExpanded ? 'Свернуть' : 'Читать ещё';
-    });
-
-    setToggleVisibility();
-    window.addEventListener('resize', setToggleVisibility);
-});
+// Инициализация слайдера при загрузке DOM
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initReviewsSlider);
+} else {
+    initReviewsSlider();
+}
 
 // Personal Consultation Modal
 const personalConsultationBtn = document.getElementById('personalConsultationBtn');

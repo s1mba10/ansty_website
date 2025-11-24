@@ -198,39 +198,5 @@ document.addEventListener('keydown', (e) => {
             personalConsultationModal.classList.remove('active');
             document.body.classList.remove('modal-open');
         }
-        if (groupSupportModal && groupSupportModal.classList.contains('active')) {
-            groupSupportModal.classList.remove('active');
-            document.body.classList.remove('modal-open');
-        }
     }
 });
-
-// Group Support Modal
-const groupSupportBtn = document.getElementById('groupSupportBtn');
-const groupSupportModal = document.getElementById('groupSupportModal');
-const groupModalClose = groupSupportModal ? groupSupportModal.querySelector('.modal-close') : null;
-const groupModalOverlay = groupSupportModal ? groupSupportModal.querySelector('.modal-overlay') : null;
-
-// Открытие модального окна группового ведения
-if (groupSupportBtn && groupSupportModal) {
-    groupSupportBtn.addEventListener('click', () => {
-        groupSupportModal.classList.add('active');
-        document.body.classList.add('modal-open');
-    });
-}
-
-// Закрытие модального окна по крестику
-if (groupModalClose && groupSupportModal) {
-    groupModalClose.addEventListener('click', () => {
-        groupSupportModal.classList.remove('active');
-        document.body.classList.remove('modal-open');
-    });
-}
-
-// Закрытие модального окна по клику на overlay
-if (groupModalOverlay && groupSupportModal) {
-    groupModalOverlay.addEventListener('click', () => {
-        groupSupportModal.classList.remove('active');
-        document.body.classList.remove('modal-open');
-    });
-}

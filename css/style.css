@@ -1765,6 +1765,14 @@ body.modal-open {
     background: var(--color-white);
 }
 
+.group-support-page .group-support-content {
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
+}
+
 .consultation-section {
     margin-bottom: var(--spacing-xl);
 }

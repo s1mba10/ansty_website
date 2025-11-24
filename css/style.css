@@ -324,10 +324,11 @@ img {
 
 /* ===== HERO SECTION ===== */
 .hero {
-    --hero-max-width: 736px;
-    /* Фиксированная арка: стабильный радиус на всех разрешениях */
-    --hero-arch-x: 360px;
-    --hero-arch-y: 320px;
+    --hero-max-width: 100%;
+    /* По умолчанию изображение плоское на всю ширину */
+    --hero-arch-x: 0px;
+    --hero-arch-y: 0px;
+    --hero-arch-duration: 0.7s;
     padding: 0;
     display: flex;
     justify-content: center;
@@ -343,6 +344,7 @@ img {
     margin: 0 auto;
     /* Верхняя часть — плавная арка, низ и бока остаются прямыми */
     border-radius: var(--hero-arch-x) var(--hero-arch-x) 0 0 / var(--hero-arch-y) var(--hero-arch-y) 0 0;
+    transition: border-radius var(--hero-arch-duration) ease, width var(--hero-arch-duration) ease;
 }
 
 .hero-image img {
@@ -360,6 +362,7 @@ img {
     position: absolute;
     inset: 0;
     border-radius: inherit;
+    transition: border-radius var(--hero-arch-duration) ease;
     background: linear-gradient(
         to bottom,
         rgba(0, 0, 0, 0) 0%,
@@ -2122,6 +2125,15 @@ body.lightbox-open {
 @media (max-width: 968px) {
     .education-grid {
         grid-template-columns: 1fr;
+    }
+}
+
+@media (min-width: 960px) {
+    .hero {
+        --hero-max-width: 736px;
+        /* Фиксированная арка при широком экране */
+        --hero-arch-x: 360px;
+        --hero-arch-y: 320px;
     }
 }
 

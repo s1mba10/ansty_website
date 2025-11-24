@@ -132,6 +132,17 @@ function initReviewsSlider() {
 
         reviewsTrack.style.transform = `translateX(-${offset}px)`;
 
+        // Сворачиваем все раскрытые карточки
+        reviewCards.forEach(card => {
+            if (card.classList.contains('expanded')) {
+                card.classList.remove('expanded');
+                const toggleBtn = card.querySelector('.review-toggle');
+                if (toggleBtn) {
+                    toggleBtn.textContent = 'читать далее';
+                }
+            }
+        });
+
         // Обновляем точки
         const dots = dotsContainer.querySelectorAll('.slider-dot');
         dots.forEach((dot, index) => {

@@ -2035,7 +2035,6 @@ body.lightbox-open {
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    transition: background 0.3s ease, transform 0.3s ease;
     z-index: 2;
     position: absolute;
     top: 50%;
@@ -2046,7 +2045,6 @@ body.lightbox-open {
 .reviews-lightbox__nav:focus-visible {
     background: var(--color-gold-brown);
     outline: none;
-    transform: translateY(-1px);
 }
 
 .reviews-lightbox__close {

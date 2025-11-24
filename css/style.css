@@ -324,16 +324,20 @@ img {
 
 /* ===== HERO SECTION ===== */
 .hero {
+    --hero-max-width: 736px;
     padding: 0;
-    background: var(--color-milk);
+    display: flex;
+    justify-content: center;
+    background: linear-gradient(90deg, #f2ecdf 0%, #f7f3ec 25%, #f7f3ec 75%, #ede4d7 100%);
 }
 
 .hero-image {
     position: relative;
-    width: 100%;
+    width: min(100%, var(--hero-max-width));
     height: 100vh;
     min-height: 600px;
     overflow: hidden;
+    margin: 0 auto;
 }
 
 .hero-image img {
@@ -341,7 +345,9 @@ img {
     height: 100%;
     object-fit: cover;
     /* Фокус на верхней части изображения (лицо) */
-    object-position: center 20%;
+    object-position: center 18%;
+    max-width: var(--hero-max-width);
+    margin: 0 auto;
 }
 
 .hero-overlay {
@@ -2112,6 +2118,21 @@ body.lightbox-open {
     }
 }
 
+@media (min-width: 1200px) {
+    .hero-image {
+        height: min(100vh, 900px);
+    }
+
+    .hero-overlay {
+        /* Фиксируем зону текста ниже уровня глаз/носа */
+        grid-template-rows: 62% 38%;
+    }
+
+    .hero-intro {
+        padding-bottom: 72px;
+    }
+}
+
 @media (max-width: 768px) {
     :root {
         --spacing-lg: 2rem;
@@ -2277,11 +2298,11 @@ body.lightbox-open {
     }
 
     .hero-intro {
-        padding-bottom: 40px;
-        gap: 12px;
-    }
+    padding-bottom: 40px;
+    gap: 12px;
+}
 
-    .hero-name {
+.hero-name {
         font-size: 1.8rem;
     }
 

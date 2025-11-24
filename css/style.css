@@ -457,6 +457,7 @@ img {
     font-style: normal;
     font-weight: 700;
     line-height: 1.2;
+    font-size: 2rem;
 }
 
 .approach-list {
@@ -486,7 +487,7 @@ img {
 
 .approach-title {
     font-family: 'Literata', serif;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     font-weight: 700;
     color: var(--color-dark);
     margin-bottom: var(--spacing-sm);
@@ -506,7 +507,7 @@ img {
 
 /* ===== ISSUES SECTION ===== */
 .issues {
-    padding: var(--spacing-xl) 0;
+    padding: var(--spacing-lg) 0 var(--spacing-xl) 0;
     background-color: var(--color-milk);
 }
 
@@ -562,6 +563,24 @@ img {
     padding: var(--spacing-lg) 0 var(--spacing-xl) 0;
     background-color: var(--color-white);
     text-align: center;
+}
+
+.work-formats .section-title {
+    white-space: nowrap;
+    overflow: visible;
+}
+
+/* Автоматическое масштабирование заголовка на маленьких экранах */
+@media (max-width: 768px) {
+    .work-formats .section-title {
+        font-size: clamp(1.4rem, 5vw, 2rem);
+    }
+}
+
+@media (max-width: 480px) {
+    .work-formats .section-title {
+        font-size: clamp(1.2rem, 6vw, 1.8rem);
+    }
 }
 
 .work-formats-buttons {

@@ -104,9 +104,69 @@
 
             <!-- Reviews Section -->
             <section class="consultation-section consultation-reviews">
-                <h2 class="consultation-section-title">Отзывы клиентов</h2>
-                <p class="consultation-reviews-placeholder">(скрины будут позже)</p>
+                <div class="consultation-reviews-head">
+                    <h2 class="consultation-section-title">Отзывы клиентов</h2>
+                    <p>Живые истории клиентов, которые уже прошли персональную консультацию и получили поддержку и понятные шаги к цели.</p>
+                </div>
+
+                <div class="consultation-reviews-gallery">
+                    <figure class="consultation-review-card" data-review-index="0" tabindex="0" role="button" aria-label="Открыть отзыв №1">
+                        <img src="images/personal_reviews/personal_review_1.PNG" alt="Отзыв клиента 1">
+                        <figcaption>Отзыв №1</figcaption>
+                    </figure>
+                    <figure class="consultation-review-card" data-review-index="1" tabindex="0" role="button" aria-label="Открыть отзыв №2">
+                        <img src="images/personal_reviews/personal_review_2.PNG" alt="Отзыв клиента 2">
+                        <figcaption>Отзыв №2</figcaption>
+                    </figure>
+                    <figure class="consultation-review-card" data-review-index="2" tabindex="0" role="button" aria-label="Открыть отзыв №3">
+                        <img src="images/personal_reviews/personal_review_3.PNG" alt="Отзыв клиента 3">
+                        <figcaption>Отзыв №3</figcaption>
+                    </figure>
+                    <figure class="consultation-review-card" data-review-index="3" tabindex="0" role="button" aria-label="Открыть отзыв №4">
+                        <img src="images/personal_reviews/personal_review_4.PNG" alt="Отзыв клиента 4">
+                        <figcaption>Отзыв №4</figcaption>
+                    </figure>
+                    <figure class="consultation-review-card" data-review-index="4" tabindex="0" role="button" aria-label="Открыть отзыв №5">
+                        <img src="images/personal_reviews/personal_review_5.PNG" alt="Отзыв клиента 5">
+                        <figcaption>Отзыв №5</figcaption>
+                    </figure>
+                    <figure class="consultation-review-card" data-review-index="5" tabindex="0" role="button" aria-label="Открыть отзыв №6">
+                        <img src="images/personal_reviews/personal_review_6.PNG" alt="Отзыв клиента 6">
+                        <figcaption>Отзыв №6</figcaption>
+                    </figure>
+                    <figure class="consultation-review-card" data-review-index="6" tabindex="0" role="button" aria-label="Открыть отзыв №7">
+                        <img src="images/personal_reviews/personal_review_7.PNG" alt="Отзыв клиента 7">
+                        <figcaption>Отзыв №7</figcaption>
+                    </figure>
+                    <figure class="consultation-review-card" data-review-index="7" tabindex="0" role="button" aria-label="Открыть отзыв №8">
+                        <img src="images/personal_reviews/personal_review_8.JPG" alt="Отзыв клиента 8">
+                        <figcaption>Отзыв №8</figcaption>
+                    </figure>
+                    <figure class="consultation-review-card" data-review-index="8" tabindex="0" role="button" aria-label="Открыть отзыв №9">
+                        <img src="images/personal_reviews/personal_review_9.PNG" alt="Отзыв клиента 9">
+                        <figcaption>Отзыв №9</figcaption>
+                    </figure>
+                </div>
             </section>
+
+            <div class="reviews-lightbox" id="reviewsLightbox" aria-hidden="true">
+                <div class="reviews-lightbox__overlay" data-lightbox-close></div>
+                <div class="reviews-lightbox__content" role="dialog" aria-modal="true" aria-label="Просмотр отзыва">
+                    <button class="reviews-lightbox__close" type="button" aria-label="Закрыть отзыв" data-lightbox-close>
+                        <span>&times;</span>
+                    </button>
+                    <button class="reviews-lightbox__nav reviews-lightbox__nav--prev" type="button" aria-label="Предыдущий отзыв">
+                        <span>←</span>
+                    </button>
+                    <figure class="reviews-lightbox__figure">
+                        <img class="reviews-lightbox__image" src="" alt="">
+                        <figcaption class="reviews-lightbox__caption"></figcaption>
+                    </figure>
+                    <button class="reviews-lightbox__nav reviews-lightbox__nav--next" type="button" aria-label="Следующий отзыв">
+                        <span>→</span>
+                    </button>
+                </div>
+            </div>
         </div>
     </main>
 
@@ -116,6 +176,8 @@
             <p>&copy; 2025 Анастасия Елисеева. Размещённые данные носят информационный характер и не являются публичной офертой.</p>
         </div>
     </footer>
+
+    <script src="js/personal-consultation.js"></script>
 </body>
 
 </html>

@@ -1497,6 +1497,25 @@ body.modal-open {
     margin: 0;
 }
 
+.advantage-title-inline {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 0;
+}
+
+.advantage-title-inline .advantage-arrow {
+    color: var(--color-gold-brown);
+    font-size: 1.1rem;
+}
+
+.advantage-title-inline .advantage-note {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--color-olive);
+}
+
 .chat-structure {
     display: flex;
     flex-direction: column;

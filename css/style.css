@@ -1524,7 +1524,7 @@ body.modal-open {
 
 .chat-item {
     display: flex;
-    gap: var(--spacing-sm);
+    gap: calc(var(--spacing-sm) * 0.75);
     align-items: flex-start;
     background: linear-gradient(135deg, rgba(166, 137, 104, 0.1) 0%, rgba(201, 184, 163, 0.15) 100%);
     padding: var(--spacing-md);
@@ -1545,11 +1545,16 @@ body.modal-open {
     font-size: 1.1rem;
 }
 
+.chat-content {
+    margin-left: -2.35rem;
+}
+
 .chat-content h4 {
     font-size: 1.05rem;
     font-weight: 600;
     color: var(--color-dark);
     margin-bottom: var(--spacing-xs);
+    padding-left: 2.35rem;
 }
 
 .chat-content ul {

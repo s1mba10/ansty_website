@@ -475,6 +475,8 @@ img {
     font-weight: 700;
     line-height: 1.2;
     font-size: 2rem;
+    white-space: nowrap;
+    font-size: clamp(1.2rem, 5vw, 2rem);
 }
 
 .approach-list {
@@ -533,6 +535,8 @@ img {
     font-style: normal;
     font-weight: 700;
     line-height: 1.2;
+    white-space: nowrap;
+    font-size: clamp(1.2rem, 5vw, 2.5rem);
 }
 
 .issues-grid {

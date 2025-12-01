@@ -2066,7 +2066,7 @@ body.modal-open {
 /* ===== REVIEWS SECTION ===== */
 .reviews-section {
     padding: var(--spacing-lg) 0 var(--spacing-xl) 0;
-    background: linear-gradient(135deg, var(--color-milk) 0%, var(--color-beige) 100%);
+    background: linear-gradient(135deg, #7a7b6b 0%, var(--color-olive) 100%);
     overflow: hidden;
 }
 

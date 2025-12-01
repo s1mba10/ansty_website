@@ -1671,6 +1671,8 @@ body.modal-open {
     font-weight: 600;
     color: var(--color-gold-brown);
     margin-bottom: var(--spacing-md);
+    white-space: nowrap;
+    font-size: clamp(1rem, 4vw, 1.6rem);
 }
 
 .consultation-benefits {

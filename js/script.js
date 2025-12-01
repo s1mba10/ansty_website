@@ -314,3 +314,48 @@ window.addEventListener('resize', () => {
     clearTimeout(subtitleResizeTimer);
     subtitleResizeTimer = setTimeout(adjustHeroSubtitle, 250);
 });
+
+// Функция для подгонки текста в одну строку
+function fitTextToOneLine(element, minFontSize = 10) {
+    const container = element.parentElement;
+    const containerWidth = container.offsetWidth;
+
+    // Сбрасываем font-size к исходному из CSS
+    element.style.fontSize = '';
+
+    let currentFontSize = parseFloat(window.getComputedStyle(element).fontSize);
+
+    // Уменьшаем размер шрифта, пока текст не поместится в одну строку
+    while (element.scrollWidth > containerWidth && currentFontSize > minFontSize) {
+        currentFontSize -= 0.5;
+        element.style.fontSize = currentFontSize + 'px';
+    }
+}
+
+// Применяем подгонку ко всем заголовкам, которые должны быть в одну строку
+function adjustSingleLineTitles() {
+    const selectors = [
+        '.issues .section-title',
+        '.approach .section-title',
+        '.consultation-section-title'
+    ];
+
+    selectors.forEach(selector => {
+        const elements = document.querySelectorAll(selector);
+        elements.forEach(element => {
+            if (element) {
+                fitTextToOneLine(element);
+            }
+        });
+    });
+}
+
+// Запуск после загрузки страницы
+window.addEventListener('load', adjustSingleLineTitles);
+
+// Запуск при изменении размера окна с debounce
+let titleResizeTimer;
+window.addEventListener('resize', () => {
+    clearTimeout(titleResizeTimer);
+    titleResizeTimer = setTimeout(adjustSingleLineTitles, 250);
+});

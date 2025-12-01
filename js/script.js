@@ -262,3 +262,55 @@ document.addEventListener('keydown', (e) => {
         }
     }
 });
+
+// Функция для подгонки текста под две строки
+function fitTextToTwoLines(element, minFontSize = 12) {
+    const computedStyle = window.getComputedStyle(element);
+    const lineHeight = parseFloat(computedStyle.lineHeight);
+
+    const effectiveLineHeight = isNaN(lineHeight)
+        ? parseFloat(computedStyle.fontSize) * 1.2
+        : lineHeight;
+
+    const maxHeight = effectiveLineHeight * 2;
+    let currentFontSize = parseFloat(computedStyle.fontSize);
+
+    while (element.scrollHeight > maxHeight && currentFontSize > minFontSize) {
+        currentFontSize -= 1;
+        element.style.fontSize = currentFontSize + 'px';
+
+        const newComputedStyle = window.getComputedStyle(element);
+        const newLineHeight = parseFloat(newComputedStyle.lineHeight);
+        const newEffectiveLineHeight = isNaN(newLineHeight)
+            ? currentFontSize * 1.2
+            : newLineHeight;
+
+        const newMaxHeight = newEffectiveLineHeight * 2;
+
+        if (element.scrollHeight <= newMaxHeight) {
+            break;
+        }
+    }
+}
+
+// Функция для применения подгонки к подзаголовку hero-секции
+function adjustHeroSubtitle() {
+    const heroSubtitle = document.querySelector('.hero-subtitle');
+
+    if (heroSubtitle) {
+        // Сбрасываем font-size к исходному
+        heroSubtitle.style.fontSize = '';
+        // Применяем подгонку под две строки
+        fitTextToTwoLines(heroSubtitle, 14);
+    }
+}
+
+// Запуск после загрузки страницы
+window.addEventListener('load', adjustHeroSubtitle);
+
+// Запуск при изменении размера окна с debounce
+let subtitleResizeTimer;
+window.addEventListener('resize', () => {
+    clearTimeout(subtitleResizeTimer);
+    subtitleResizeTimer = setTimeout(adjustHeroSubtitle, 250);
+});
